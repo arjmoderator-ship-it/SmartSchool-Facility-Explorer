@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Fasilitas Luar — SMK CIBITUNG 1</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="logo_cisat-removebg-preview.png">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <img src="logo_cisat-removebg-preview.png" class="brand-logo">
+        <div class="brand-text">
+          <h1>SMK CIBITUNG 1</h1>
+          <small>SmartSchool Facility Explorer</small>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">🏠 Beranda</a>
+        <a href="uml.html" class="nav-link">📘 UML Module</a>
+        <a href="kontak.html" class="nav-link">📞 Kontak</a>
+      </nav>
+    </div>
+    <svg class="header-wave" viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path d="M0,40 C360,100 1080,-20 1440,40 L1440,80 L0,80 Z" fill="#ffd6a5" opacity="0.12"></path>
+      <path d="M0,50 C360,10 1080,90 1440,50 L1440,80 L0,80 Z" fill="#ffb703" opacity="0.06"></path>
+    </svg>
+  </header>
+
+  <!-- MAIN -->
+  <main class="container">
+    <section class="card">
+      <h2 style="color:#e65100; margin-bottom:10px;">🏫 Fasilitas Luar Sekolah</h2>
+      <p>Area luar <strong>SMK CIBITUNG 1</strong> memiliki berbagai fasilitas pendukung kegiatan siswa dan guru. Berikut penjelasan tiap area:</p>
+    </section>
+
+    <section class="card floor-nav">
+      <div class="floor-card">
+        <div class="emoji">🚪</div>
+        <div class="title">Gerbang Sekolah</div>
+        <div class="desc">Terdapat dua gerbang utama: satu di dekat masjid dan satu di jalan arah kiri sekolah.</div>
+      </div>
+
+      <div class="floor-card">
+        <div class="emoji">🕌</div>
+        <div class="title">Masjid</div>
+        <div class="desc">Berada di sisi kanan depan, digunakan untuk ibadah siswa dan kegiatan keagamaan.</div>
+      </div>
+
+      <div class="floor-card">
+        <div class="emoji">🧍‍♂️</div>
+        <div class="title">Pos Satpam</div>
+        <div class="desc">Terletak di samping gerbang utama, memantau keamanan dan tamu yang masuk.</div>
+      </div>
+
+      <div class="floor-card">
+        <div class="emoji">🛵</div>
+        <div class="title">Parkir Motor</div>
+        <div class="desc">Area parkir luas untuk siswa dan guru, terletak di samping pos satpam.</div>
+      </div>
+
+      <div class="floor-card">
+        <div class="emoji">🏀</div>
+        <div class="title">Lapangan</div>
+        <div class="desc">Berada di tengah-tengah gedung sekolah, digunakan untuk upacara dan olahraga.</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>🗺️ Denah Umum</h3>
+      <p>Denah berikut menggambarkan tata letak fasilitas luar sekolah secara umum:</p>
+      <img src="s1.png" alt="Denah Fasilitas SMK CIBITUNG 1" style="width:100%;border-radius:12px;margin-top:10px;box-shadow:0 10px 25px rgba(0,0,0,0.08)">
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div>© 2025 SMK CIBITUNG 1</div>
+      <div class="small">SmartSchool Facility Explorer</div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) e.target.classList.add('reveal');
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.card, .floor-card').forEach(el => obs.observe(el));
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Kontak — SMK CIBITUNG 1</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="logo_cisat-removebg-preview.png">
+  <style>
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .contact-info {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+      padding: 24px;
+    }
+    .contact-info h3 {
+      color: #e65100;
+      margin-bottom: 10px;
+    }
+    .contact-info p {
+      margin: 8px 0;
+      color: #444;
+    }
+    .socials {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 14px;
+    }
+    .socials span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+    }
+    .contact-form {
+      background: #fff8f3;
+      border-radius: 14px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+      padding: 24px;
+    }
+    .contact-form h3 {
+      color: #e65100;
+      margin-bottom: 14px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 14px;
+    }
+    .form-group label {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .form-group input, .form-group textarea {
+      padding: 10px;
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 8px;
+      font-size: 0.95rem;
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .btn-send {
+      background: var(--orange);
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn-send:hover {
+      background: var(--orange-700);
+    }
+    .map {
+      margin-top: 30px;
+      text-align: center;
+    }
+    .map iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    @media(max-width:900px){
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <img src="logo_cisat-removebg-preview.png" class="brand-logo">
+        <div class="brand-text">
+          <h1>SMK CIBITUNG 1</h1>
+          <small>SmartSchool Facility Explorer</small>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">🏠 Beranda</a>
+        <a href="uml.html" class="nav-link">📘 UML Module</a>
+        <a href="kontak.html" class="nav-link active">📞 Kontak</a>
+      </nav>
+    </div>
+    <svg class="header-wave" viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path d="M0,40 C360,100 1080,-20 1440,40 L1440,80 L0,80 Z" fill="#ffd6a5" opacity="0.12"></path>
+      <path d="M0,50 C360,10 1080,90 1440,50 L1440,80 L0,80 Z" fill="#ffb703" opacity="0.06"></path>
+    </svg>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2 style="color:#e65100;">📞 Kontak Kami</h2>
+      <p>Silakan hubungi kami jika Anda ingin mengetahui lebih lanjut tentang fasilitas, sistem, atau kegiatan di <b>SMK CIBITUNG 1</b>.</p>
+    </section>
+
+    <section class="contact-grid">
+      <!-- INFO -->
+      <div class="contact-info">
+        <h3>🏫 Informasi Sekolah</h3>
+        <p><strong>Alamat:</strong> Jl. Raya Cibitung No. 1, Bekasi, Jawa Barat</p>
+        <p><strong>Email:</strong> smkcibitung1@gmail.com</p>
+        <p><strong>Telepon:</strong> (021) 8897-1234</p>
+        <p><strong>Jam Operasional:</strong> Senin – Jumat, 07.00 – 16.00 WIB</p>
+
+        <div class="socials">
+          <h4 style="margin-top:10px;">🌐 Media Sosial</h4>
+          <span>📘 Facebook: <a href="#" style="color:#e65100;text-decoration:none;">SMK CIBITUNG 1</a></span>
+          <span>📷 Instagram: <a href="#" style="color:#e65100;text-decoration:none;">@smkcibitung1</a></span>
+          <span>🎥 YouTube: <a href="#" style="color:#e65100;text-decoration:none;">SMK CIBITUNG 1 Official</a></span>
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <div class="contact-form">
+        <h3>📬 Kirim Pesan</h3>
+        <form onsubmit="alert('Pesan telah dikirim! (simulasi)'); return false;">
+          <div class="form-group">
+            <label for="nama">Nama Lengkap</label>
+            <input type="text" id="nama" name="nama" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Alamat Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="pesan">Pesan</label>
+            <textarea id="pesan" name="pesan" required></textarea>
+          </div>
+          <button class="btn-send" type="submit">📤 Kirim</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- MAP -->
+    <section class="map card">
+      <h3>📍 Lokasi Kami</h3>
+      <p>Berikut lokasi sekolah kami di Google Maps:</p>
+      <iframe src="https://www.google.com/maps?q=SMK+Cibitung+1+Bekasi&output=embed" loading="lazy"></iframe>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>© 2025 SMK CIBITUNG 1</div>
+      <div class="small">SmartSchool Facility Explorer — Kontak</div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('reveal'); });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.card, .contact-info, .contact-form').forEach(el => obs.observe(el));
+    });
+  </script>
+</body>
+</html>
