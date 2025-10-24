@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lantai 2 — SMK CIBITUNG 1</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="logo_cisat-removebg-preview.png">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <img src="logo_cisat-removebg-preview.png" class="brand-logo">
+        <div class="brand-text">
+          <h1>SMK CIBITUNG 1</h1>
+          <small>SmartSchool Facility Explorer</small>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">🏠 Beranda</a>
+        <a href="uml.html" class="nav-link">📘 UML Module</a>
+        <a href="kontak.html" class="nav-link">📞 Kontak</a>
+      </nav>
+    </div>
+    <svg class="header-wave" viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path d="M0,40 C360,100 1080,-20 1440,40 L1440,80 L0,80 Z" fill="#ffd6a5" opacity="0.12"></path>
+      <path d="M0,50 C360,10 1080,90 1440,50 L1440,80 L0,80 Z" fill="#ffb703" opacity="0.06"></path>
+    </svg>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+
+    <section class="card">
+      <h2 style="color:#e65100;">🏫 Lantai 2 — SMK CIBITUNG 1</h2>
+      <p>
+        Lantai dua merupakan area utama kegiatan belajar siswa jurusan Teknik Motor (TM) dan jurusan lainnya. 
+        Dilengkapi ruang guru, ruang BK, dan laboratorium tambahan. Beberapa tangga di kiri dan kanan menghubungkan ke lantai 3.
+      </p>
+    </section>
+
+    <section class="card floor-nav">
+
+      <div class="floor-card">
+        <div class="emoji">🪜</div>
+        <div class="title">Tangga Ujung Kiri</div>
+        <div class="desc">
+          Tangga penghubung dari lantai 1 ke lantai 2, terletak di sisi kiri ujung bangunan.
+        </div>
+      </div>
+
+      <div class="floor-card">
+        <div class="emoji">🧰</div>
+        <div class="title">Ruang Kelas Jurusan TM (5 Ruang)</div>
+        <div class="desc">
+          Lima ruang kelas untuk jurusan Teknik Motor kelas 10, dilengkapi alat peraga dan papan tulis digital.
+        </div>
+      </div>
+
+      <div class="floor-card">
+        <div class="emoji">🚻</div>
+        <div class="title">Toilet & Ruang BK</div>
+        <div class="desc">
+          Toilet perempuan dan Ruang Bimbingan Konseling berada di tengah area TM, menyediakan tempat nyaman untuk konsultasi siswa.
+        </div>
+      </div>
+
+      <div class="floor-card">
+        <div class="emoji">🪜</div>
+        <div class="title">Tangga Tengah ke Lantai 3</div>
+        <div class="desc">
+          Tangga yang menuju ke lantai 3, terletak di antara ruang BK dan ruang guru.
+        </div>
+      </div>
+
+      <div class="floor-card">
+        <div class="emoji">👩‍🏫</div>
+        <div class="title">Ruang Guru</div>
+        <div class="desc">
+          Tempat para guru berkumpul, menyusun RPP, dan berdiskusi mengenai kegiatan belajar mengajar.
+        </div>
+      </div>
+
+      <div class="floor-card">
+        <div class="emoji">💻</div>
+        <div class="title">Lab Komputer SIJA</div>
+        <div class="desc">
+          Laboratorium komputer tambahan untuk siswa SIJA melakukan proyek jaringan dan server.
+        </div>
+      </div>
+
+      <div class="floor-card">
+        <div class="emoji">🏫</div>
+        <div class="title">Kelas 11 TM & Lainnya</div>
+        <div class="desc">
+          Ruangan kelas untuk siswa kelas 11 dari berbagai jurusan. Didesain luas dan berpendingin udara.
+        </div>
+      </div>
+
+      <div class="floor-card">
+        <div class="emoji">🪜</div>
+        <div class="title">Tangga Kanan ke Lantai 3</div>
+        <div class="desc">
+          Tangga di sisi kanan koridor yang menghubungkan langsung ke lantai 3.
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>🗺️ Denah Lantai 2</h3>
+      <p>Berikut denah visual lantai kedua sekolah:</p>
+      <img src="s1.png" alt="Denah Lantai 2 SMK CIBITUNG 1" style="width:100%;border-radius:12px;margin-top:10px;box-shadow:0 10px 25px rgba(0,0,0,0.08)">
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>© 2025 SMK CIBITUNG 1</div>
+      <div class="small">SmartSchool Facility Explorer</div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) e.target.classList.add('reveal');
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.card, .floor-card').forEach(el => obs.observe(el));
+    });
+  </script>
+
+</body>
+</html>

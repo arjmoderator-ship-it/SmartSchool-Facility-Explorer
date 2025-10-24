@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Admin | SMK CIBITUNG 1</title>
+    <link rel="stylesheet" href="style-login.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <img src="logo_cisat-removebg-preview.png" alt="Logo SMK Cibitung 1" class="logo">
+        <h2>Login Admin</h2>
+
+        <form onsubmit="return loginAdmin(event)">
+            <div class="input-group">
+                <label for="username">Username Admin</label>
+                <input type="text" id="username" placeholder="Masukkan username admin..." required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Masukkan password..." required>
+            </div>
+
+            <button type="submit" class="btn-login">Masuk</button>
+        </form>
+
+        <div class="footer-text">
+            <a href="login-siswa.html">Login Siswa</a>
+        </div>
+    </div>
+
+    <script>
+        const adminAccount = { username: "admin", password: "smkcibitung1" };
+
+        function loginAdmin(event) {
+            event.preventDefault();
+            const user = document.getElementById("username").value.trim();
+            const pass = document.getElementById("password").value.trim();
+
+            if (user === adminAccount.username && pass === adminAccount.password) {
+                localStorage.setItem("adminLogged", "true");
+                alert("✅ Login Admin berhasil!");
+                window.location.href = "admin-dashboard.html";
+            } else {
+                alert("❌ Username atau password admin salah!");
+            }
+        }
+    </script>
+</body>
+</html>

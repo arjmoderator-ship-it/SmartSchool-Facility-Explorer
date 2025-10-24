@@ -1,0 +1,15 @@
+{
+  "name": "SmartSchool Facility Explorer",
+  "short_name": "SmartSchool",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#f57c00",
+  "icons": [
+    {
+      "src": "logo_cisat-removebg-preview.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

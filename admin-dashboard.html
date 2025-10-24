@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin | SMK CIBITUNG 1</title>
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #fff7e6;
+            margin: 0;
+            padding: 30px;
+            color: #333;
+        }
+        h1 {
+            color: #ff8c00;
+        }
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background: #ff8c00;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #fff1d1;
+        }
+        .logout {
+            background: #ff8c00;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .logout:hover {
+            background: #e67e00;
+        }
+        .user-info {
+            margin-top: -10px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #555;
+        }
+        .logout-row {
+            background: #ffb347;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .logout-row:hover {
+            background: #ff9900;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>📊 Dashboard Admin</h1>
+    <p class="user-info" id="adminInfo"></p>
+    <p>Berikut daftar siswa yang sudah terdaftar dan yang belum memiliki akun:</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Status</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody id="dataSiswa"></tbody>
+    </table>
+
+    <button class="logout" onclick="logoutAdmin()">Logout Admin</button>
+
+    <script>
+        // Data siswa terdaftar dan belum terdaftar
+        const siswaTerdaftar = [
+            { id: 1, username: "siswa01", status: "Terdaftar" },
+            { id: 2, username: "siswa02", status: "Terdaftar" }
+        ];
+
+        const siswaBelum = [
+            { id: 3, username: "", status: "Belum Terdaftar" },
+            { id: 4, username: "", status: "Belum Terdaftar" }
+        ];
+
+        const semuaSiswa = [...siswaTerdaftar, ...siswaBelum];
+
+        window.onload = () => {
+            // Pastikan admin login dulu
+            if (localStorage.getItem("adminLogged") !== "true") {
+                alert("⚠️ Anda harus login sebagai admin terlebih dahulu!");
+                window.location.href = "login-admin.html";
+                return;
+            }
+
+            // Tampilkan nama admin
+            const adminName = localStorage.getItem("adminUsername") || "Admin";
+            document.getElementById("adminInfo").innerText = `👋 Selamat datang, ${adminName}!`;
+
+            // Ambil siswa yang sedang login dari localStorage
+            const loggedSiswa = localStorage.getItem("loggedUser");
+
+            // Tampilkan daftar siswa di tabel
+            const tbody = document.getElementById("dataSiswa");
+            semuaSiswa.forEach(s => {
+                let statusText = s.status;
+
+                // Jika username siswa sama dengan yang sedang login
+                if (loggedSiswa && s.username === loggedSiswa) {
+                    statusText = "Sedang Login 🔵";
+                }
+
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${s.id}</td>
+                    <td>${s.username}</td>
+                    <td>${statusText}</td>
+                    <td>
+                        ${
+                            statusText === "Sedang Login 🔵"
+                                ? `<button class="logout-row" onclick="logoutSiswa('${s.username}')">Logout</button>`
+                                : "-"
+                        }
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        };
+
+        // Logout admin
+        function logoutAdmin() {
+            localStorage.removeItem("adminLogged");
+            localStorage.removeItem("adminUsername");
+            alert("Anda telah logout sebagai admin.");
+            window.location.href = "login-admin.html";
+        }
+
+        // Logout siswa (hapus dari localStorage)
+        function logoutSiswa(username) {
+            const loggedUser = localStorage.getItem("loggedUser");
+            if (loggedUser === username) {
+                localStorage.removeItem("loggedUser");
+                alert(`✅ Siswa '${username}' telah di-logout.`);
+                location.reload();
+            } else {
+                alert("❌ Siswa ini belum login.");
+            }
+        }
+    </script>
+
+</body>
+</html>

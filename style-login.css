@@ -1,0 +1,146 @@
+/* ------------------------------
+   SMK CIBITUNG 1 — Login Style
+   (selaras dengan style.css utama)
+------------------------------ */
+
+:root {
+  --orange: #ff7a00;
+  --orange-700: #e65100;
+  --peach: #fff3e0;
+  --bg: #fff8f5;
+  --text: #222;
+  --muted: #666;
+  --card-shadow: 0 10px 30px rgba(17,17,17,0.06);
+  --radius: 14px;
+  --font: 'Poppins', 'Inter', system-ui, sans-serif;
+}
+
+/* Reset & base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font);
+  background: linear-gradient(135deg, var(--bg), #fff);
+  color: var(--text);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Container login */
+.login-container {
+  background: #fff;
+  width: 380px;
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  padding: 40px 36px;
+  text-align: center;
+  animation: fadeUp 0.8s ease;
+}
+
+/* Logo */
+.login-container img.logo {
+  width: 80px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  margin-bottom: 10px;
+}
+
+/* Judul */
+.login-container h2 {
+  color: var(--orange-700);
+  font-size: 1.4rem;
+  margin-bottom: 22px;
+}
+
+/* Input group */
+.input-group {
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.input-group label {
+  font-weight: 600;
+  color: var(--text);
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.92rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  transition: 0.25s;
+}
+
+.input-group input:focus {
+  border-color: var(--orange);
+  outline: none;
+  box-shadow: 0 0 6px rgba(255,122,0,0.25);
+}
+
+/* Tombol login */
+.btn-login {
+  width: 100%;
+  padding: 12px;
+  background: var(--orange);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 8px 20px rgba(255,122,0,0.15);
+}
+
+.btn-login:hover {
+  background: var(--orange-700);
+  transform: translateY(-2px);
+}
+
+/* Footer text bawah form */
+.footer-text {
+  margin-top: 22px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.footer-text a {
+  color: var(--orange);
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-text a:hover {
+  color: var(--orange-700);
+  text-decoration: underline;
+}
+
+/* Animasi sederhana */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsif */
+@media (max-width: 450px) {
+  .login-container {
+    width: 90%;
+    padding: 30px 24px;
+  }
+}

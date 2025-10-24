@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SMK CIBITUNG 1 — SmartSchool Facility Explorer</title>
+  <link rel="icon" href="logo_cisat-removebg-preview.png" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json">
+</head>
+
+  <script>
+    // ----------- CEK LOGIN -------------
+    document.addEventListener("DOMContentLoaded", () => {
+      const loggedUser = localStorage.getItem("loggedUser");
+      const adminLogged = localStorage.getItem("adminLogged");
+
+      // Jika belum login siswa atau admin → arahkan ke login siswa
+      if (!loggedUser && !adminLogged) {
+        window.location.href = "login-siswa.html";
+        return;
+      }
+
+      // Jika admin login, langsung ke dashboard admin
+      if (adminLogged === "true") {
+        window.location.href = "admin-dashboard.html";
+        return;
+      }
+
+      // Tambahkan info login di header kanan atas
+      const header = document.querySelector(".site-header .header-inner");
+      const loginInfo = document.createElement("div");
+      loginInfo.classList.add("user-info");
+      loginInfo.innerHTML = `
+        <div class="login-status">
+          👤 <strong>${loggedUser}</strong> |
+          <button class="logout-btn">Logout</button>
+        </div>
+      `;
+      header.appendChild(loginInfo);
+
+      // Tombol logout
+      const logoutBtn = loginInfo.querySelector(".logout-btn");
+      logoutBtn.addEventListener("click", () => {
+        localStorage.removeItem("loggedUser");
+        alert("Anda telah logout.");
+        window.location.href = "login-siswa.html";
+      });
+    });
+  </script>
+
+  <style>
+    /* ---------- TAMBAHAN STYLE UNTUK STATUS LOGIN ---------- */
+    .user-info {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .login-status {
+      background: #fff3e0;
+      border: 1px solid #ffb703;
+      border-radius: 8px;
+      padding: 6px 12px;
+      margin-left: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logout-btn {
+      background: #ff8c00;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 4px 8px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .logout-btn:hover {
+      background: #e67e00;
+    }
+
+    @media (max-width: 600px) {
+      .login-status {
+        font-size: 12px;
+        padding: 5px 8px;
+      }
+    }
+  </style>
+
+
+<body>
+
+  <!-- SPLASH -->
+  <div id="splash">
+    <div class="splash-inner">
+      <img src="logo_cisat-removebg-preview.png" alt="Logo SMK CIBITUNG 1" class="splash-logo">
+      <h1>SMK CIBITUNG 1</h1>
+      <p>SmartSchool Facility Explorer</p>
+      <div class="splash-loader"><span></span></div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <img src="logo_cisat-removebg-preview.png" alt="logo" class="brand-logo">
+        <div class="brand-text">
+          <h1>SMK CIBITUNG 1</h1>
+          <small>SmartSchool Facility Explorer</small>
+        </div>
+      </div>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html" class="nav-link active">🏠 Beranda</a>
+        <a href="uml.html" class="nav-link">📘 UML Module</a>
+        <a href="kontak.html" class="nav-link">📞 Kontak</a>
+      </nav>
+    </div>
+
+    <!-- decorative wave -->
+    <svg class="header-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,40 C360,100 1080,-20 1440,40 L1440,80 L0,80 Z" fill="#ffd6a5" opacity="0.12"></path>
+      <path d="M0,50 C360,10 1080,90 1440,50 L1440,80 L0,80 Z" fill="#ffb703" opacity="0.06"></path>
+    </svg>
+  </header>
+
+  <!-- MAIN -->
+  <main class="container">
+    <section class="hero card">
+      <div class="hero-left">
+        <h2>Selamat Datang 👋</h2>
+        <p>
+          Selamat datang di <strong>SmartSchool Facility Explorer</strong> — referensi digital lengkap untuk mengetahui
+          fasilitas dan denah <em>SMK CIBITUNG 1</em>. Jelajahi lantai, fasilitas luar, atau buka modul UML untuk dokumentasi teknis.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="uml.html">📘 Buka UML Module</a>
+          <a class="btn ghost" href="kontak.html">📞 Kontak</a>
+        </div>
+
+        <div class="hint">
+          <p><strong>Catatan:</strong> Gunakan tombol di bawah untuk langsung membuka denah per-lantai atau fasilitas luar.</p>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="infocard">
+          <h3>Info Singkat</h3>
+          <ul>
+            <li>Nama Sekolah: <strong>SMK CIBITUNG 1</strong></li>
+            <li>Alamat: Jl. Raya Cibitung No. 45, Bekasi</li>
+            <li>Warna tema: Jingga & Putih</li>
+          </ul>
+        </div>
+        <div class="feature-illustration" aria-hidden="true">
+          <!-- small illustrative block -->
+          <svg width="200" height="140" viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="20" rx="8" ry="8" width="120" height="90" fill="#fff3e0" stroke="#ffb703" />
+            <rect x="74" y="40" rx="6" ry="6" width="110" height="70" fill="#fff8f1" stroke="#ff7a00" />
+            <circle cx="38" cy="60" r="8" fill="#ff7a00"></circle>
+            <rect x="86" y="56" width="48" height="8" rx="2" fill="#ffb703"></rect>
+            <rect x="86" y="72" width="36" height="8" rx="2" fill="#ffb703"></rect>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- quick floor nav -->
+    <section class="card floor-nav">
+      <a class="floor-card" href="fasilitas.html">
+        <div class="emoji">🏡</div>
+        <div class="title">Fasilitas Luar</div>
+        <div class="desc">Gerbang, Masjid, Pos Satpam, Parkir, Lapangan</div>
+      </a>
+
+      <a class="floor-card" href="lantai1.html">
+        <div class="emoji">🏢</div>
+        <div class="title">Lantai 1</div>
+        <div class="desc">Lobi, Lab Komputer, Bank Mini, Kantin</div>
+      </a>
+
+      <a class="floor-card" href="lantai2.html">
+        <div class="emoji">🏫</div>
+        <div class="title">Lantai 2</div>
+        <div class="desc">Kelas TM, Lab SIJA, Ruang Guru</div>
+      </a>
+
+      <a class="floor-card" href="lantai3.html">
+        <div class="emoji">🏬</div>
+        <div class="title">Lantai 3</div>
+        <div class="desc">RPL, AKL, Kepala Sekolah, Lab</div>
+      </a>
+    </section>
+
+    <!-- highlights -->
+    <section class="card highlights">
+      <h3>Fitur</h3>
+      <div class="grid-3">
+        <div class="feature">
+          <div class="icon">💻</div>
+          <h4>Denah Interaktif</h4>
+          <p>Visual denah tiap lantai dengan detail ruangan dan penjelasan singkat.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">📘</div>
+          <h4>Dokumentasi UML</h4>
+          <p>Modul UML lengkap (Use case → Deployment) untuk pengembangan sistem.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">📞</div>
+          <h4>Kontak & Dukungan</h4>
+          <p>Form kontak untuk kirim pesan ke pihak sekolah langsung dari web.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div>© 2025 SMK CIBITUNG 1</div>
+      <div class="small">Designed with ❤️ — SmartSchool Facility Explorer</div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // splash logic + small fade-in
+    window.addEventListener('load', () => {
+      const splash = document.getElementById('splash');
+      setTimeout(() => {
+        splash.classList.add('hide');
+        setTimeout(()=> splash.remove(), 700);
+      }, 1800);
+    });
+
+    // small animation on scroll: reveal simple
+    document.addEventListener('DOMContentLoaded', () => {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) e.target.classList.add('reveal');
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.card, .floor-card, .feature').forEach(el => obs.observe(el));
+    });
+  </script>
+</body>
+</html>

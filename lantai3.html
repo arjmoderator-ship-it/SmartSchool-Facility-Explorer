@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lantai 3 — SMK CIBITUNG 1</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="logo_cisat-removebg-preview.png">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <img src="logo_cisat-removebg-preview.png" class="brand-logo">
+        <div class="brand-text">
+          <h1>SMK CIBITUNG 1</h1>
+          <small>SmartSchool Facility Explorer</small>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">🏠 Beranda</a>
+        <a href="uml.html" class="nav-link">📘 UML Module</a>
+        <a href="kontak.html" class="nav-link">📞 Kontak</a>
+      </nav>
+    </div>
+    <svg class="header-wave" viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path d="M0,40 C360,100 1080,-20 1440,40 L1440,80 L0,80 Z" fill="#ffd6a5" opacity="0.12"></path>
+      <path d="M0,50 C360,10 1080,90 1440,50 L1440,80 L0,80 Z" fill="#ffb703" opacity="0.06"></path>
+    </svg>
+  </header>
+
+  <main class="container">
+
+    <section class="card">
+      <h2 style="color:#e65100;">🏫 Lantai 3 — SMK CIBITUNG 1</h2>
+      <p>
+        Lantai ketiga berisi ruang-ruang kelas dan laboratorium modern, serta ruangan kepala sekolah. 
+        Beberapa area di lantai ini juga digunakan untuk kegiatan akademik jurusan PPLG dan AKL.
+      </p>
+    </section>
+
+    <section class="card floor-nav">
+      <div class="floor-card">
+        <div class="emoji">🪜</div>
+        <div class="title">Tangga Kiri</div>
+        <div class="desc">
+          Tangga penghubung dari lantai 2 ke lantai 3 di sisi kiri bangunan.
+        </div>
+      </div>
+
+      <div class="floor-card">
+        <div class="emoji">🏫</div>
+        <div class="title">Kelas 10 AKL (2 Ruang)</div>
+        <div class="desc">
+          Dua ruang kelas untuk siswa jurusan Akuntansi dan Keuangan Lembaga (AKL).
+        </div>
+      </div>
+
+      <div class="floor-card">
+        <div class="emoji">🪜</div>
+        <div class="title">Tangga Tengah</div>
+        <div class="desc">
+          Tangga di tengah lantai yang juga berasal dari lantai 2, dekat area PPLG.
+        </div>
+      </div>
+
+      <div class="floor-card">
+        <div class="emoji">💻</div>
+        <div class="title">Kelas 10 PPLG (3 Ruang)</div>
+        <div class="desc">
+          Ruang-ruang kelas jurusan PPLG yang dilengkapi komputer dan pendingin udara.
+        </div>
+      </div>
+
+      <div class="floor-card">
+        <div class="emoji">🚹</div>
+        <div class="title">Toilet Laki-laki</div>
+        <div class="desc">
+          Toilet untuk siswa laki-laki terletak di samping ruang PPLG 3.
+        </div>
+      </div>
+
+      <div class="floor-card">
+        <div class="emoji">🏦</div>
+        <div class="title">Bank Mini (Top Up)</div>
+        <div class="desc">
+          Ruangan tambahan bank mini di lantai 3 untuk keperluan top up dan latihan transaksi digital.
+        </div>
+      </div>
+
+      <div class="floor-card">
+        <div class="emoji">💻</div>
+        <div class="title">Lab Komputer SIJA (2 Ruang)</div>
+        <div class="desc">
+          Dua laboratorium untuk simulasi jaringan dan server, lengkap dengan pendingin dan CCTV.
+        </div>
+      </div>
+
+      <div class="floor-card">
+        <div class="emoji">🏢</div>
+        <div class="title">Ruang Kepala Sekolah</div>
+        <div class="desc">
+          Kantor kepala sekolah, digunakan untuk kegiatan administrasi dan pertemuan resmi.
+        </div>
+      </div>
+
+      <div class="floor-card">
+        <div class="emoji">🏫</div>
+        <div class="title">Kelas 10 Tambahan (2 Ruang)</div>
+        <div class="desc">
+          Dua ruang kelas tambahan di ujung kanan lantai, digunakan untuk pelajaran umum.
+        </div>
+      </div>
+
+      <div class="floor-card">
+        <div class="emoji">🪜</div>
+        <div class="title">Tangga Kanan</div>
+        <div class="desc">
+          Tangga terakhir di ujung kanan lantai, menuju lantai 2 dan area bawah.
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>🗺️ Denah Lantai 3</h3>
+      <p>Berikut denah visual lantai ketiga sekolah:</p>
+      <img src="s1.png" alt="Denah Lantai 3 SMK CIBITUNG 1" style="width:100%;border-radius:12px;margin-top:10px;box-shadow:0 10px 25px rgba(0,0,0,0.08)">
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>© 2025 SMK CIBITUNG 1</div>
+      <div class="small">SmartSchool Facility Explorer</div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) e.target.classList.add('reveal');
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.card, .floor-card').forEach(el => obs.observe(el));
+    });
+  </script>
+
+</body>
+</html>
